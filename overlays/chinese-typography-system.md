@@ -17,7 +17,7 @@
 | tree_sha256 | `223155a9080f31708f6312515fc0339e5b75cb6ff05b08c94ef0ac8d93fb6083` |
 | 链接状态 | 正常，链尾落到实体（files=3），不属于 `.agents` ↔ `.hermes` 互指的断链 |
 | WorkBuddy 加载状态 | **未加载**（技能列表缓存命中 0 次，无入口） |
-| c61ed7d 版写法 | `/Users/mac/.agents/skills-master/chinese-typography-system`：E0 未记录该路径，与上面的实体不一致，待核 |
+| c61ed7d 版写法 | `/Users/mac/.agents/skills-master/chinese-typography-system`：E0 未记录该路径；经核为受 git 跟踪的副本，与上面的实体逐字节相同（SKILL.md sha256 489b8684… 一致，diff -rq 无差异，2026-09-28 核） |
 
 **读法**：按绝对路径直接打开 `/Users/mac/.cc-switch/skills/chinese-typography-system/SKILL.md`。
 
