@@ -1,1 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg"><title>annotation-layer</title></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1020" width="720" height="1020">
+  <title>atlas grid annotation layer — replace numbers per case</title>
+  <!-- MB 版心 -->
+  <rect id="MB" x="48" y="48" width="624" height="908" fill="none" stroke="#E11D48" stroke-width="2"/>
+  <text x="52" y="40" font-size="10" fill="#E11D48" font-family="ui-monospace, monospace">MB 720×1020 margin=48/48/64/48</text>
+  <!-- COL 栏：12 栏示意 -->
+  <g id="COL" fill="none" stroke="#2563EB" stroke-width="1">
+    <rect x="48" y="48" width="40" height="908"/>
+    <rect x="104" y="48" width="40" height="908"/>
+    <rect x="160" y="48" width="40" height="908"/>
+    <rect x="216" y="48" width="40" height="908"/>
+    <rect x="272" y="48" width="40" height="908"/>
+    <rect x="328" y="48" width="40" height="908"/>
+    <rect x="384" y="48" width="40" height="908"/>
+    <rect x="440" y="48" width="40" height="908"/>
+    <rect x="496" y="48" width="40" height="908"/>
+    <rect x="552" y="48" width="40" height="908"/>
+    <rect x="608" y="48" width="40" height="908"/>
+    <rect x="664" y="48" width="8" height="908"/>
+  </g>
+  <text x="48" y="1010" font-size="10" fill="#2563EB" font-family="ui-monospace, monospace">COL-1… gutter=16px (edit)</text>
+  <!-- MOD 模块示意 -->
+  <g id="MOD" fill="none" stroke="#059669" stroke-width="1" stroke-dasharray="4 4">
+    <rect x="48" y="48" width="624" height="140"/>
+    <rect x="48" y="204" width="624" height="140"/>
+  </g>
+  <!-- BL 基线示意（局部） -->
+  <g id="BL" stroke="#CA8A04" stroke-width="0.5">
+    <line x1="48" y1="400" x2="672" y2="400"/>
+    <line x1="48" y1="408" x2="672" y2="408"/>
+    <line x1="48" y1="416" x2="672" y2="416"/>
+  </g>
+  <!-- AX 对齐轴 -->
+  <line id="AX-1" x1="48" y1="48" x2="48" y2="956" stroke="#7C3AED" stroke-width="1" stroke-dasharray="1 3"/>
+  <!-- BRK 破格点占位 -->
+  <g id="BRK-1">
+    <circle cx="672" cy="120" r="6" fill="none" stroke="#EA580C" stroke-width="2"/>
+    <text x="580" y="112" font-size="10" fill="#EA580C" font-family="ui-monospace, monospace">BRK-1 edit</text>
+  </g>
+</svg>
