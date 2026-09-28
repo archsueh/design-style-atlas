@@ -12,6 +12,6 @@ P2：不新写体系。只指向本机已有实现，并给出与海报模数写
 | 4 | `/Users/mac/Developer/skill-libraries/claude-skills/marketing-skill/skills/brand-guidelines/references/brand-identity-and-framework.md` | 品牌应用分层（Web/Email/Social/Print），无数字模数 | 品牌规范 | 无 |
 | 5 | `/Users/mac/Developer/skill-libraries/antigravity-awesome-skills/plugins/antigravity-bundle-web-designer/skills/mobile-design/mobile-typography.md` | 移动端字号建议 | 手机 UI | A 过大；正文≈A/8 量级 |
 | 6 | `/Users/mac/.agents/skills-master/vignelli-canon-design-system/SKILL.md` | **两档字号**（two-size type scale） | 标识/编辑/导视 | 接近「A vs 正文」，没有 A/4、A/8、A/24 四档 |
-| 7 | huashu `critique-guide` / `slide-decks`（章节标题，不写行号） | 校验：标题≥正文 2.5 倍；3–4 层级 | PPT/页 | 2.5× 接近「A 对正文」，不是 4/8/24 |
+| 7 | `/Users/mac/.agents/skills-master/huashu-design/references/critique-guide.md` `## 常见设计问题 Top 10`（第 106 行；「2.5 倍」在第 35、114 行，执行 2026-09-28 在 Mac 上核实）；`slide-decks.md`（报告称第 140/331/552 行，待落盘复核） | 校验：标题≥正文 2.5 倍；3–4 层级 | PPT/页 | 2.5× 接近「A 对正文」，不是 4/8/24 |
 
 本机「模数比例制」已存在，缺的是海报那套 A 切分的生成侧。需要 A 切分时：选定 A（主标题字号），再算 A/4、A/8、A/24，并限制总档数 ≤4。不要另造第五套 scale。

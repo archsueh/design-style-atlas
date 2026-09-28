@@ -1,10 +1,11 @@
+<!-- 本文件 = E1 执行版 `e1/build_e1.py` 中 STYLE_ENTRY 字符串原文（逐字抽取）+ 两处改动：① Frontmatter 示例的代码块语言由 yaml 改为 markdown（块内含 `---` 分隔线，按 YAML 解析会报多文档错误，文字未改）；② 文末新增 1 条规则「§9 例外通道」（2026-09-28 幕僚长决定）。执行可直接用本文件替换 schema/style-entry.md。 -->
 # 风格条目统一 schema
 
 每个 `styles/<id>.md` 由 frontmatter 加 8 节组成，缺任何一节即不合格。
 
 ## Frontmatter
 
-```yaml
+```markdown
 ---
 id: acid                     # 与文件名一致，即 style: 的取值
 name_zh: 酸性设计
@@ -29,3 +30,8 @@ exception: false             # 是否与默认纪律冲突、需走例外通道�
 | §6 提示词出口 | 按 `prompt-export/interface.md` 契约给正向片段、反向片段、分工具写法 | 5 个工具字段齐全（Flux 可写「转正向约束」） |
 | §7 来源与既有实现 | 事实来源、本机已有实现的 overlay 引用 | 至少 1 条可追溯来源 |
 | §8 区分度自检 | 一句话写清与 `nearest` 的差别 | 必填 |
+
+## §9 例外通道（仅限 `exception: true`）
+
+- `exception: true` 的条目可以、也应当加第 9 节「§9 例外通道」，写明本条目覆盖哪些默认纪律、覆盖范围到哪里为止。
+- lint：只有 `exception: true` 时才允许出现 §9；`exception: false` 的条目出现 §9 即不合格。无论是否为例外条目，§1–§8 仍全部必填。

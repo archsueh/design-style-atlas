@@ -26,3 +26,6 @@ exception: false
 ## §7 来源与既有实现
 
 ## §8 区分度自检
+
+<!-- 仅当 frontmatter 为 exception: true 时加下一节，否则删除本注释 -->
+<!-- ## §9 例外通道 -->

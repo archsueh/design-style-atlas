@@ -1,6 +1,6 @@
 # 设计原则
 
-1. **标签加通用 token 等于没有风格。** 反面样本是 `open-design`：`brutalism/DESIGN.md` 与 `bento/DESIGN.md` 同为 71 行，差异集中在标题、分类、一句描述、标签和若干 hex；§4 Spacing 到 §9 Anti-patterns 共用同一套通用条款。12 个风格抽样里 8 个 primary 是 Tailwind `#3B82F6`。每条 atlas 风格必须写出只属于它的判据、反模式、排版机制，由 `scripts/lint_entries.py` 机检句子不重复。
+1. **标签加通用 token 等于没有风格。** 反面样本是 `open-design`：`brutalism/DESIGN.md` 与 `bento/DESIGN.md` 逐行比对只差 8 处（标题、Category、一句描述、Visual style、Color stance、四个 hex、字体族、字号 Scale 标签），§4 Spacing & Grid 到 §9 Anti-patterns 逐字节相同（`差集比对-勘误补遗-20260928.md` §2.2；「两文件同为 71 行」出自 c61ed7d 版，报告未记行数，待核）。12 个风格抽样里 8 个 primary 是 Tailwind `#3B82F6`。每条 atlas 风格必须写出只属于它的判据、反模式、排版机制，由 `scripts/lint_entries.py` 机检句子不重复。
 
 2. **判据必须可检验。** 写成看图能答「是 / 否」的句子。禁止「有张力」「很高级」。
 

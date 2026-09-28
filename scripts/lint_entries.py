@@ -4,6 +4,12 @@
 Checks:
 - non-placeholder entries have YAML frontmatter + 8 section headings
 - criterion and anti-pattern sentences are unique across entries
+- (merged 2026-09-28) "## §9 例外通道" allowed only when exception: true; §1–§8 still required
+- (merged 2026-09-28) §1/§2 items may be numbered ("1. ...") or ID bullets ("- IT-1 ...", "- AC-AP-1 ...")
+- (merged 2026-09-28) §6 decisions: 5 tool keys; midjourney no "--style raw";
+  seedream uses art_style (art_style_first rejected); dalle3 carries deprecated: "2026-05-12"
+- (merged 2026-09-28) no Pantone chip numbers such as "Pantone 186 C"
+Usage: python3 scripts/lint_entries.py [ROOT]   (ROOT defaults to the repo root)
 Exit 0 on pass, 1 on fail.
 """
 from __future__ import annotations
@@ -12,7 +18,7 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else Path(__file__).resolve().parents[1]
 STYLES = ROOT / "styles"
 REQUIRED_HEADINGS = [
     "## §1 判据",
@@ -24,6 +30,11 @@ REQUIRED_HEADINGS = [
     "## §7 来源与既有实现",
     "## §8 区分度自检",
 ]
+SEC9 = "## §9 例外通道"
+BOUNDARIES = REQUIRED_HEADINGS + [SEC9]
+TOOL_KEYS = ["midjourney:", "stable_diffusion:", "seedream:", "dalle3:", "flux:"]
+PANTONE_CHIP = re.compile(r"(?i)\b(?:pantone|pms)\s+\d{2,4}\s?[cu]\b")
+ITEM = re.compile(r"\s*(?:\d+\.|[-*]\s+[A-Z]{2,}(?:-[A-Z]+)*-\d+)\s+(.*)$")
 
 
 def split_frontmatter(text: str) -> tuple[dict[str, str], str]:
@@ -43,7 +54,7 @@ def split_frontmatter(text: str) -> tuple[dict[str, str], str]:
 def numbered_sentences(section: str) -> list[str]:
     out = []
     for line in section.splitlines():
-        m = re.match(r"\s*\d+\.\s+(.*)$", line)
+        m = ITEM.match(line)
         if m:
             s = re.sub(r"\s+", " ", m.group(1)).strip()
             if s:
@@ -91,14 +102,36 @@ def main() -> int:
         for h in REQUIRED_HEADINGS:
             if h not in body:
                 errors.append(f"{path.name}: missing {h}")
-        c_list = numbered_sentences(section_body(body, "## §1 判据", REQUIRED_HEADINGS))
-        a_list = numbered_sentences(section_body(body, "## §2 反模式", REQUIRED_HEADINGS))
+        is_exc = meta.get("exception", "").split("#")[0].strip().lower() == "true"
+        if re.search(r"^## §9", body, re.M):
+            if not is_exc:
+                errors.append(f"{path.name}: §9 present but exception is not true")
+            elif SEC9 not in body:
+                errors.append(f"{path.name}: §9 heading must be '{SEC9}'")
+        elif is_exc:
+            errors.append(f"{path.name}: exception: true should carry '{SEC9}'")
+        s6 = section_body(body, "## §6 提示词出口", BOUNDARIES)
+        for k in TOOL_KEYS:
+            if k not in s6:
+                errors.append(f"{path.name}: §6 missing tool key {k}")
+        if "--style raw" in s6:
+            errors.append(f"{path.name}: §6 uses '--style raw' (decision: --raw)")
+        if "art_style_first" in s6:
+            errors.append(f"{path.name}: §6 uses art_style_first (decision: art_style)")
+        if not re.search(r"seedream:\s*\{\s*art_style:", s6):
+            errors.append(f"{path.name}: §6 seedream must use art_style")
+        if not re.search(r"dalle3:.*deprecated:\s*\"?2026-05-12", s6):
+            errors.append(f"{path.name}: §6 dalle3 must carry deprecated: 2026-05-12")
+        if PANTONE_CHIP.search(text):
+            errors.append(f"{path.name}: Pantone chip number found")
+        c_list = numbered_sentences(section_body(body, "## §1 判据", BOUNDARIES))
+        a_list = numbered_sentences(section_body(body, "## §2 反模式", BOUNDARIES))
         if len(c_list) < 3:
             errors.append(f"{path.name}: §1 needs ≥3 numbered criteria (got {len(c_list)})")
         if len(a_list) < 3:
             errors.append(f"{path.name}: §2 needs ≥3 numbered anti-patterns (got {len(a_list)})")
         if "## §8 区分度自检" in body:
-            s8 = section_body(body, "## §8 区分度自检", REQUIRED_HEADINGS).strip()
+            s8 = section_body(body, "## §8 区分度自检", BOUNDARIES).strip()
             if len(s8) < 20:
                 errors.append(f"{path.name}: §8 too short")
         for s in c_list:
