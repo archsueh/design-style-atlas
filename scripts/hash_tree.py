@@ -73,7 +73,7 @@ def orderings(files: list[Path]) -> dict[str, list[Path]]:
 
 
 def content_modes(raw: bytes) -> dict[str, bytes]:
-    modes: dict[str, bytes] = {"full": raw}
+    modes: dict[str, bytes] = {"full": raw, "frontmatter": b"", "body": b""}
     text = raw.decode("utf-8", "replace")
 
     # frontmatter-only: between the first pair of `---` lines
@@ -82,11 +82,7 @@ def content_modes(raw: bytes) -> dict[str, bytes]:
         if end != -1:
             fm = text[: end + 4]
             modes["frontmatter"] = fm.encode("utf-8")
-
-    # body-only: after the first closing `---`
-    if text.startswith("---"):
-        end = text.find("\n---", 3)
-        if end != -1:
+            # body-only: after the first closing `---`
             modes["body"] = text[end + 4:].encode("utf-8")
 
     modes["stripped"] = raw.rstrip(b"\n")
