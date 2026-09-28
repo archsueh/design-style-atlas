@@ -1,40 +1,136 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1020" width="720" height="1020">
-  <title>atlas grid annotation layer — replace numbers per case</title>
-  <!-- MB 版心 -->
-  <rect id="MB" x="48" y="48" width="624" height="908" fill="none" stroke="#E11D48" stroke-width="2"/>
-  <text x="52" y="40" font-size="10" fill="#E11D48" font-family="ui-monospace, monospace">MB 720×1020 margin=48/48/64/48</text>
-  <!-- COL 栏：12 栏示意 -->
-  <g id="COL" fill="none" stroke="#2563EB" stroke-width="1">
-    <rect x="48" y="48" width="40" height="908"/>
-    <rect x="104" y="48" width="40" height="908"/>
-    <rect x="160" y="48" width="40" height="908"/>
-    <rect x="216" y="48" width="40" height="908"/>
-    <rect x="272" y="48" width="40" height="908"/>
-    <rect x="328" y="48" width="40" height="908"/>
-    <rect x="384" y="48" width="40" height="908"/>
-    <rect x="440" y="48" width="40" height="908"/>
-    <rect x="496" y="48" width="40" height="908"/>
-    <rect x="552" y="48" width="40" height="908"/>
-    <rect x="608" y="48" width="40" height="908"/>
-    <rect x="664" y="48" width="8" height="908"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1414" viewBox="0 0 1000 1414" data-atlas="design-style-atlas/layout/annotation-layer" data-version="0.1-draft">
+  <!-- 落盘时复核项：图层 id 与 hex 须与 layout/grid-annotation.md 第 1 节一致；无其他外部依赖。 -->
+  <title>design-style-atlas 标注图层模板（annotation-layer）</title>
+  <desc>复制本文件后：把 width/height/viewBox 改为原图像素尺寸；在 #source 内填外部图片链接；删除所有 data-placeholder="true" 的占位几何体。图层色码与标签格式见 layout/grid-annotation.md。颜色为屏幕标注色，非印刷规格。</desc>
+  <defs>
+    <marker id="eye-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker>
+    <style>
+      .lbl { font-family: "Helvetica Neue", Arial, "PingFang SC", "Noto Sans CJK SC", sans-serif; font-size: 17px; }
+      .lead { stroke-width: 0.5; fill: none; }
+      .lg { font-family: "Helvetica Neue", Arial, "PingFang SC", "Noto Sans CJK SC", sans-serif; font-size: 15px; fill: #222222; }
+    </style>
+  </defs>
+  <g id="source" data-layer="原图" data-note="外部链接引用，不嵌入原图">
+    <title>来源：填写标题 / 来源页 URL / 许可 / 像素尺寸</title>
+    <rect x="0" y="0" width="1000" height="1414" fill="#FAFAF7" data-placeholder="true"/>
+    <!-- <image href="https://…/source.jpg" x="0" y="0" width="W" height="H" preserveAspectRatio="none"/> -->
   </g>
-  <text x="48" y="1010" font-size="10" fill="#2563EB" font-family="ui-monospace, monospace">COL-1… gutter=16px (edit)</text>
-  <!-- MOD 模块示意 -->
-  <g id="MOD" fill="none" stroke="#059669" stroke-width="1" stroke-dasharray="4 4">
-    <rect x="48" y="48" width="624" height="140"/>
-    <rect x="48" y="204" width="624" height="140"/>
+  <g id="PG" data-layer="外框" stroke="#6E6E6E" stroke-width="1" fill="none">
+    <rect x="0.5" y="0.5" width="999" height="1413" data-placeholder="true"/>
+    <text class="lbl" x="12" y="24" fill="#6E6E6E" stroke="none" data-placeholder="true">PG-1 w=1000px h=1414px ratio=1:1.414</text>
   </g>
-  <!-- BL 基线示意（局部） -->
-  <g id="BL" stroke="#CA8A04" stroke-width="0.5">
-    <line x1="48" y1="400" x2="672" y2="400"/>
-    <line x1="48" y1="408" x2="672" y2="408"/>
-    <line x1="48" y1="416" x2="672" y2="416"/>
+  <g id="COL" data-layer="栏" stroke="#56B4E9" stroke-width="1.5" stroke-dasharray="8 4" fill="#56B4E9" fill-opacity="0.12">
+    <rect x="110.0" y="120" width="240.0" height="1100" data-placeholder="true"/>
+    <rect x="380.0" y="120" width="240.0" height="1100" data-placeholder="true"/>
+    <rect x="650.0" y="120" width="240.0" height="1100" data-placeholder="true"/>
+    <text class="lbl" x="116.0" y="112" fill="#1F6F99" fill-opacity="1" stroke="none" data-placeholder="true">COL-1 w=240px gutter=30px</text>
+    <text class="lbl" x="386.0" y="112" fill="#1F6F99" fill-opacity="1" stroke="none" data-placeholder="true">COL-2 w=240px gutter=30px</text>
+    <text class="lbl" x="656.0" y="112" fill="#1F6F99" fill-opacity="1" stroke="none" data-placeholder="true">COL-3 w=240px</text>
   </g>
-  <!-- AX 对齐轴 -->
-  <line id="AX-1" x1="48" y1="48" x2="48" y2="956" stroke="#7C3AED" stroke-width="1" stroke-dasharray="1 3"/>
-  <!-- BRK 破格点占位 -->
-  <g id="BRK-1">
-    <circle cx="672" cy="120" r="6" fill="none" stroke="#EA580C" stroke-width="2"/>
-    <text x="580" y="112" font-size="10" fill="#EA580C" font-family="ui-monospace, monospace">BRK-1 edit</text>
+  <g id="MOD" data-layer="模块" stroke="#009E73" stroke-width="1" stroke-dasharray="2 3" fill="none">
+    <rect x="110" y="316.0" width="780" height="30" data-placeholder="true"/>
+    <rect x="110" y="542.0" width="780" height="30" data-placeholder="true"/>
+    <rect x="110" y="768.0" width="780" height="30" data-placeholder="true"/>
+    <rect x="110" y="994.0" width="780" height="30" data-placeholder="true"/>
+    <text class="lbl" x="110" y="1298" fill="#00704F" stroke="none" data-placeholder="true">MOD-1 rows=5 h=196px gutter=30px</text>
+  </g>
+  <g id="BL" data-layer="基线" stroke="#CC79A7" stroke-width="0.75" stroke-opacity="0.8" fill="none">
+    <line x1="110" y1="142" x2="890" y2="142" data-placeholder="true"/>
+    <line x1="110" y1="164" x2="890" y2="164" data-placeholder="true"/>
+    <line x1="110" y1="186" x2="890" y2="186" data-placeholder="true"/>
+    <line x1="110" y1="208" x2="890" y2="208" data-placeholder="true"/>
+    <line x1="110" y1="230" x2="890" y2="230" data-placeholder="true"/>
+    <line x1="110" y1="252" x2="890" y2="252" data-placeholder="true"/>
+    <line x1="110" y1="274" x2="890" y2="274" data-placeholder="true"/>
+    <line x1="110" y1="296" x2="890" y2="296" data-placeholder="true"/>
+    <line x1="110" y1="318" x2="890" y2="318" data-placeholder="true"/>
+    <line x1="110" y1="340" x2="890" y2="340" data-placeholder="true"/>
+    <line x1="110" y1="362" x2="890" y2="362" data-placeholder="true"/>
+    <line x1="110" y1="384" x2="890" y2="384" data-placeholder="true"/>
+    <line x1="110" y1="406" x2="890" y2="406" data-placeholder="true"/>
+    <line x1="110" y1="428" x2="890" y2="428" data-placeholder="true"/>
+    <line x1="110" y1="450" x2="890" y2="450" data-placeholder="true"/>
+    <line x1="110" y1="472" x2="890" y2="472" data-placeholder="true"/>
+    <line x1="110" y1="494" x2="890" y2="494" data-placeholder="true"/>
+    <line x1="110" y1="516" x2="890" y2="516" data-placeholder="true"/>
+    <line x1="110" y1="538" x2="890" y2="538" data-placeholder="true"/>
+    <line x1="110" y1="560" x2="890" y2="560" data-placeholder="true"/>
+    <line x1="110" y1="582" x2="890" y2="582" data-placeholder="true"/>
+    <line x1="110" y1="604" x2="890" y2="604" data-placeholder="true"/>
+    <line x1="110" y1="626" x2="890" y2="626" data-placeholder="true"/>
+    <line x1="110" y1="648" x2="890" y2="648" data-placeholder="true"/>
+    <line x1="110" y1="670" x2="890" y2="670" data-placeholder="true"/>
+    <line x1="110" y1="692" x2="890" y2="692" data-placeholder="true"/>
+    <line x1="110" y1="714" x2="890" y2="714" data-placeholder="true"/>
+    <line x1="110" y1="736" x2="890" y2="736" data-placeholder="true"/>
+    <line x1="110" y1="758" x2="890" y2="758" data-placeholder="true"/>
+    <line x1="110" y1="780" x2="890" y2="780" data-placeholder="true"/>
+    <line x1="110" y1="802" x2="890" y2="802" data-placeholder="true"/>
+    <line x1="110" y1="824" x2="890" y2="824" data-placeholder="true"/>
+    <line x1="110" y1="846" x2="890" y2="846" data-placeholder="true"/>
+    <line x1="110" y1="868" x2="890" y2="868" data-placeholder="true"/>
+    <line x1="110" y1="890" x2="890" y2="890" data-placeholder="true"/>
+    <line x1="110" y1="912" x2="890" y2="912" data-placeholder="true"/>
+    <line x1="110" y1="934" x2="890" y2="934" data-placeholder="true"/>
+    <line x1="110" y1="956" x2="890" y2="956" data-placeholder="true"/>
+    <line x1="110" y1="978" x2="890" y2="978" data-placeholder="true"/>
+    <line x1="110" y1="1000" x2="890" y2="1000" data-placeholder="true"/>
+    <line x1="110" y1="1022" x2="890" y2="1022" data-placeholder="true"/>
+    <line x1="110" y1="1044" x2="890" y2="1044" data-placeholder="true"/>
+    <line x1="110" y1="1066" x2="890" y2="1066" data-placeholder="true"/>
+    <line x1="110" y1="1088" x2="890" y2="1088" data-placeholder="true"/>
+    <line x1="110" y1="1110" x2="890" y2="1110" data-placeholder="true"/>
+    <line x1="110" y1="1132" x2="890" y2="1132" data-placeholder="true"/>
+    <line x1="110" y1="1154" x2="890" y2="1154" data-placeholder="true"/>
+    <line x1="110" y1="1176" x2="890" y2="1176" data-placeholder="true"/>
+    <line x1="110" y1="1198" x2="890" y2="1198" data-placeholder="true"/>
+    <line x1="110" y1="1220" x2="890" y2="1220" data-placeholder="true"/>
+    <text class="lbl" x="110" y="1272" fill="#A0507F" stroke="none" data-placeholder="true">BL-1 pitch=22px n=50 first=142 last=1220</text>
+  </g>
+  <g id="BOX" data-layer="版心" stroke="#0072B2" stroke-width="2" fill="none">
+    <rect x="110" y="120" width="780" height="1100" data-placeholder="true"/>
+    <text class="lbl" x="110" y="1246" fill="#0072B2" stroke="none" data-placeholder="true">BOX-1 x=110 y=120 w=780px h=1100px inner=110 top=120 outer=110 bottom=194</text>
+  </g>
+  <g id="AX" data-layer="对齐轴" stroke="#E69F00" stroke-width="1.25" stroke-dasharray="10 3 2 3" fill="none">
+    <line x1="380.0" y1="40" x2="380.0" y2="1280" data-placeholder="true"/>
+    <line x1="40" y1="230" x2="960" y2="230" data-placeholder="true"/>
+    <text class="lbl" x="386.0" y="56" fill="#9A6A00" stroke="none" data-placeholder="true">AX-1 x=380px shared=2</text>
+    <text class="lbl" x="750" y="224" fill="#9A6A00" stroke="none" data-placeholder="true">AX-2 y=230px shared=3</text>
+  </g>
+  <g id="BRK" data-layer="破格点" stroke="#D55E00" stroke-width="2" fill="#D55E00" fill-opacity="0.15">
+    <rect x="60" y="640" width="140" height="120" data-placeholder="true"/>
+    <path d="M60 640 L200 760 M200 640 L60 760" fill="none" stroke-width="1" data-placeholder="true"/>
+    <text class="lbl" x="60" y="782" fill="#B34700" fill-opacity="1" stroke="none" data-placeholder="true">BRK-1 bbox=60,640,140,120 dev=-50px(x) serves=?</text>
+  </g>
+  <g id="EYE" data-layer="动线（扩展）" stroke="#000000" stroke-width="1.5" stroke-dasharray="12 6" fill="none">
+    <path d="M130 700 L560 300 L800 900" marker-end="url(#eye-arrow)" data-placeholder="true"/>
+    <circle cx="130" cy="700" r="13" fill="#FFFFFF" stroke-dasharray="none" data-placeholder="true"/>
+    <text class="lbl" x="130" y="706" text-anchor="middle" fill="#000000" stroke="none" data-placeholder="true">1</text>
+    <circle cx="560" cy="300" r="13" fill="#FFFFFF" stroke-dasharray="none" data-placeholder="true"/>
+    <text class="lbl" x="560" y="306" text-anchor="middle" fill="#000000" stroke="none" data-placeholder="true">2</text>
+    <circle cx="800" cy="900" r="13" fill="#FFFFFF" stroke-dasharray="none" data-placeholder="true"/>
+    <text class="lbl" x="800" y="906" text-anchor="middle" fill="#000000" stroke="none" data-placeholder="true">3</text>
+    <text class="lbl" x="578" y="290" fill="#000000" stroke="none" data-placeholder="true">EYE-1 order=1→3 el=? why=?</text>
+  </g>
+  <g id="legend" data-layer="图例" transform="translate(620,1262)">
+    <rect x="0" y="0" width="360" height="140" fill="#FFFFFF" fill-opacity="0.92" stroke="#222222" stroke-width="0.5"/>
+    <text class="lg" x="10" y="18" font-weight="bold">图例 · 标签格式 [层]-[序号] 键=值</text>
+    <line x1="10" y1="38" x2="46" y2="38" stroke="#6E6E6E" stroke-width="1.25"/>
+    <text class="lg" x="54" y="43">PG 外框</text>
+    <line x1="10" y1="64" x2="46" y2="64" stroke="#0072B2" stroke-width="2.0"/>
+    <text class="lg" x="54" y="69">BOX 版心</text>
+    <line x1="10" y1="90" x2="46" y2="90" stroke="#56B4E9" stroke-width="1.5" stroke-dasharray="8 4"/>
+    <text class="lg" x="54" y="95">COL 栏</text>
+    <line x1="10" y1="116" x2="46" y2="116" stroke="#009E73" stroke-width="1.25" stroke-dasharray="2 3"/>
+    <text class="lg" x="54" y="121">MOD 模块</text>
+    <line x1="188" y1="38" x2="224" y2="38" stroke="#CC79A7" stroke-width="1.25"/>
+    <text class="lg" x="232" y="43">BL 基线</text>
+    <line x1="188" y1="64" x2="224" y2="64" stroke="#E69F00" stroke-width="1.25" stroke-dasharray="10 3 2 3"/>
+    <text class="lg" x="232" y="69">AX 对齐轴</text>
+    <line x1="188" y1="90" x2="224" y2="90" stroke="#D55E00" stroke-width="2.0"/>
+    <text class="lg" x="232" y="95">BRK 破格点</text>
+    <line x1="188" y1="116" x2="224" y2="116" stroke="#000000" stroke-width="1.5" stroke-dasharray="12 6"/>
+    <text class="lg" x="232" y="121">EYE 动线（扩展）</text>
   </g>
 </svg>
