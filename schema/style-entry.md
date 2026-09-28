@@ -1,4 +1,4 @@
-<!-- 本文件 = E1 执行版 `e1/build_e1.py` 中 STYLE_ENTRY 字符串原文（逐字抽取）+ 两处改动：① Frontmatter 示例的代码块语言由 yaml 改为 markdown（块内含 `---` 分隔线，按 YAML 解析会报多文档错误，文字未改）；② 文末新增 1 条规则「§9 例外通道」（2026-09-28 幕僚长决定）。执行可直接用本文件替换 schema/style-entry.md。 -->
+<!-- 本文件是「风格条目统一 schema」的权威定义（字符串最初抽取自 E1 时期的 `e1/build_e1.py` 中的 STYLE_ENTRY，现已由本仓库直接维护，不再依赖外部脚本）；相对 E1 原串有两点改动：① Frontmatter 示例的代码块语言由 yaml 改为 markdown（块内含 `---` 分隔线，按 YAML 解析会报多文档错误，文字未改）；② 文末新增 1 条规则「§9 例外通道」（2026-09-28 幕僚长决定）。 -->
 # 风格条目统一 schema
 
 每个 `styles/<id>.md` 由 frontmatter 加 8 节组成，缺任何一节即不合格。
