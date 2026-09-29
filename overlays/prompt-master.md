@@ -16,11 +16,11 @@
 | B 的 tree_sha256 | `ea665cbc5999e0275707400a24e5525b15bd75da3d3e576a8d1fa8f03b90aeba` |
 | 备份 A（不引用） | `/Users/mac/Developer/skill-libraries/prompt-master`，`SKILL.md` sha256 `b85718374d27bbada453791af92b7ae0b3256e5552d2f3f9d940ca4183131e4b`，与 B 内容已分叉。注意：c61ed7d 版 overlay 与 interface 以 A 为供料对象（git HEAD `d15eabbe5d2122eedc060bae8a771381e9873d1b`），与 `E0-预检.md` §6.1 拍板的 B 冲突；本合并版按拍板用 B |
 | 备份 cc-switch（不引用） | `/Users/mac/.cc-switch/skills/prompt-master`，与 B 逐字节相同 |
-| WorkBuddy 加载状态 | **未加载**。`~/.workbuddy-ai/skills/` 下没有该技能，技能列表缓存中命中 0 次 |
+| WorkBuddy 加载状态 | **已挂**（2026-09-29）：`~/.workbuddy-ai/skills/prompt-master` → `~/.agents/skills-master/prompt-master`（与 agents 同实体 B）。列表是否出现仍按 R1，不改 WB 配置。Developer 副本 A 仍不引用 |
 
 以上均出自 `E0-预检.md` §3、§4、§6.1、§6.3。
 
-**读法**：WorkBuddy 内不能「调用」prompt-master，只能按绝对路径直接打开 `/Users/mac/.agents/skills-master/prompt-master/SKILL.md` 阅读。
+**读法**：加载位已挂到实体 B。新开 WorkBuddy 会话看列表有没有；没有则停，不改 WB 配置。也可按绝对路径打开 `/Users/mac/.agents/skills-master/prompt-master/SKILL.md`。
 
 ## 2. 要读的章节
 
