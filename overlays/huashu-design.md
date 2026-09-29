@@ -13,7 +13,7 @@
 | tree_sha256 | `519e1ffc7e938b2a032040790d0b5628b3213537ab97f9d27ea7537dc900a4e8` |
 | `SKILL.md` 大小 | 62359 B（取自 c61ed7d 版 overlay） |
 | 其他副本 | `~/.cc-switch/skills/huashu-design`、`~/.grok/skills/huashu-design`（各 90 个文件，不引用） |
-| WorkBuddy 加载状态 | **未加载**（技能列表缓存命中 0 次）。WorkBuddy 中的 `huashu-md-html` 是另一个包，不是本技能 |
+| WorkBuddy 加载状态 | **已挂**（2026-09-29）：`~/.workbuddy-ai/skills/huashu-design` → `~/.agents/skills-master/huashu-design`。列表是否出现仍按 R1，不改 WB 配置。`huashu-md-html` 是另一个包 |
 
 以上出自 `E0-预检.md` §3、§4 与 `差集比对-20260928.md` §4.2、§5.2。
 

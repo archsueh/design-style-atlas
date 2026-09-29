@@ -15,7 +15,7 @@
 | 所在 git 仓 | `/Users/mac/.agents/skills-master`，HEAD `c1d7f2cf…` |
 | `SKILL.md` sha256 | `111da5001367407aed0911643b78310ff941d38b9632a144cbdb364d5eedc4c9` |
 | tree_sha256 | `d5dcf796e6ee70a2cbabaa23925d4dc0d635fd246f3316c229c9627fa324824f` |
-| WorkBuddy 加载状态 | **未加载**（缓存命中 0 次） |
+| WorkBuddy 加载状态 | **已挂**（2026-09-29）：`~/.workbuddy-ai/skills/muller-brockmann-grid-systems` → skills-master 实体。列表是否出现仍按 R1 |
 
 出处：`E0-预检.md` §3、§4；`差集比对-勘误补遗-20260928.md` §1.1。
 
