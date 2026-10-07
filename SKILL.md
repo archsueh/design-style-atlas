@@ -1,6 +1,6 @@
 ---
 name: design-style-atlas
-description: "Use when the request contains an explicit `style:` token (e.g. `style: acid`, `style: collage`, `style: international-typographic`, or method refs `style: ref/cn-type`, `style: ref/layout-decompose`, `style: ref/grid-annotate`, `style: ref/pantone`). Knowledge base for Chinese type classes, layout teardown, grid annotation, Pantone print workflow, and per-style criteria. Do not load when no `style:` token is present — default Bauhaus/Swiss path stays with existing skills."
+description: "Use when the request contains an explicit `style:` token (e.g. `style: acid`, `style: collage`, `style: halftone-duotone`, `style: international-typographic`, or method refs `style: ref/cn-type`, `style: ref/layout-decompose`, `style: ref/grid-annotate`, `style: ref/pantone`). Knowledge base for Chinese type classes, layout teardown, grid annotation, Pantone print workflow, and per-style criteria. Do not load when no `style:` token is present — default Bauhaus/Swiss path stays with existing skills."
 ---
 
 # design-style-atlas
@@ -15,7 +15,7 @@ description: "Use when the request contains an explicit `style:` token (e.g. `st
   - `style: ref/layout-decompose` → `layout/decomposition-method.md`
   - `style: ref/grid-annotate` → `layout/grid-annotation.md`
   - `style: ref/pantone` → `color/pantone-print-system.md`
-- `status: placeholder` 的槽（`_slot-04`…`_slot-07`）没有名字，不得当风格用。
+- `status: placeholder` 的槽（`_slot-05`…`_slot-07`）没有名字，不得当风格用。
 - `exception: true`（目前仅 `acid`）只覆盖**当前请求**的评审纪律，不改 huashu 或其他文件；覆盖范围写在该条目 §9「例外通道」。
 
 ## 路由表
@@ -25,6 +25,7 @@ description: "Use when the request contains an explicit `style:` token (e.g. `st
 | `style: international-typographic` | `styles/international-typographic.md` |
 | `style: collage` | `styles/collage.md` |
 | `style: acid` | `styles/acid.md` |
+| `style: halftone-duotone` | `styles/halftone-duotone.md` |
 | `style: ref/cn-type` | `typography/cn-type-classes.md` |
 | `style: ref/layout-decompose` | `layout/decomposition-method.md` |
 | `style: ref/grid-annotate` | `layout/grid-annotation.md` |

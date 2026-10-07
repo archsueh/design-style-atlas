@@ -19,7 +19,14 @@
 ## 更新纪律
 
 - 新风格复制 `schema/style-entry.template.md`，八节写满后再改 `status: ready`。
-- 图 1 未知的 4 个风格只占位（`styles/_slot-0N.md`），不猜名字。
+- 图 1 未知的风格只占位（`styles/_slot-0N.md`），不猜名字。`_slot-04` 已于 2026-09-30 由用户提供的样张定名为 `halftone-duotone`，余 `_slot-05`…`_slot-07`。
 - 第三方 skill 只在 `overlays/` 写引用，不改对方文件。
 - 改完跑 `python3 scripts/lint_entries.py`。
 - 潘通文件不收录色号数值表。
+
+## 加条目时容易踩的四个坑（2026-09-30 补）
+
+1. **§6 有一条 lint 没实现的成文契约**：`len(negative) == len(flux.negative_as_positive)`（写在 `prompt-export/interface.md` §6）。lint 不查，得自己对齐。
+2. **从样张倒推的条目**：具体 hex 与网角**不可照抄**（JPEG 色度二次采样）。未核实项必须落进 §7，宁缺勿猜。取证方法见 `screenshot-forensics` skill。
+3. **占用 `_slot-0N` 要同步三处**：`README.md` 的槽位说明、`SKILL.md` 的「placeholder 槽」行与路由表、`styles/_index.md`；然后删掉槽文件本身。
+4. **历史记录里的计数不要改成新数字**：「当时 3 个条目」是带日期的决策记录，改成「4」等于篡改。要改就写成「当时 3 条；现 N 条同样适用」。

@@ -5,7 +5,7 @@
 > prompt-master 位置：`/Users/mac/.agents/skills-master/prompt-master`（`E0-预检.md` §6.1 拍板的实体 B）。它不在 WorkBuddy 加载面内，读法见 `overlays/prompt-master.md`。
 > 落盘时复核项：
 > 1. prompt-master 图像段锚点已核实：`### Tool Routing` 下的加粗条目 `**Image AI — Generation**`（执行 2026-09-28 在 Mac 上核实）；
-> 2. 三个风格条目 §6 已改用 `seedream.art_style`（merged 版，2026-09-28）。
+> 2. 全部风格条目 §6 一律用 `seedream.art_style`（merged 版 2026-09-28 定，当时 3 条；`halftone-duotone` 2026-09-30 加入时沿用）。
 
 ---
 
@@ -81,7 +81,7 @@ atlas 的对应做法：
    - 字段 `art_style_first` 改名为 `art_style`；
    - 位置规则放在 atlas 内，即 `tool-syntax.md` §0.1 的 `art_style_position`，4.0 / 4.5 / 5.0 lite 为 `tail`；
    - prompt-master 不作修改，组装方读取该字段。
-   - 三个风格条目 §6 已在 merged 版改为 `art_style`，值不变。
+   - 当时 3 个风格条目 §6 已在 merged 版改为 `art_style`，值不变（`halftone-duotone` 2026-09-30 加入，字段相同）。
 3. **DALL·E 3**：保留 `dalle3` 字段，标记 `deprecated: 2026-05-12`，不设替代字段，见 `tool-syntax.md` §4。
 4. **Flux**：计划书的判断「对反向提示词的原生支持有限」经官方核实成立。BFL 原文为「Most FLUX models do not support negative prompts」，且当前 BFL API 各模型参数中均无 `negative_prompt`，见 `tool-syntax.md` §5。
 
@@ -92,6 +92,12 @@ atlas 的对应做法：
 - `negative_as_positive` 中不出现 no、not、without、avoid、instead、free of。
 - `midjourney.no` 每项为单个词。
 - `positive` 四槽都不为空。
+
+**⚠️ 用 PyYAML 读这些文件时，`midjourney.no` 会变成布尔键 `False`。** YAML 1.1 把裸写的
+`no` 解析为布尔假，所以 `d["tools"]["midjourney"]["no"]` 抛 `KeyError`，
+而 `["midjourney"][False]` 才拿得到那份清单。本库自带的 `check_yaml.py` 用自己的
+builtin-subset 解析器，不受影响；外部脚本若用 PyYAML 校验 §6，必须处理这一点
+（`mj.get("no", mj.get(False, []))`），否则会静默认为 `midjourney.no` 缺失。
 
 ## 来源
 
