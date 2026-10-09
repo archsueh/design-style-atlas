@@ -47,3 +47,9 @@ description: "Use when the request contains an explicit `style:` token (e.g. `st
 - 改第三方仓里的任何文件。
 - 把 `open-design/design-systems/` 的 DESIGN.md 当风格实现。
 - 收录潘通色号数值表。
+
+<!-- design-judgment-integration -->
+## Post-Generation Design Judgment
+
+交付前必须跑 `design-judgment` 技能的五段判断链做自检，不要只交付「技术上成功的第一稿」——
+完整规则（五段链 / 六维度 / 选模型路由 / 三条硬边界）见 [`references/design-judgment.md`](references/design-judgment.md)。
