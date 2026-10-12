@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    name: Verify Atlas Consistency
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
+    # Both gates below were previously run by hand — README's 更新纪律 says
+    # "改完跑 python3 scripts/lint_entries.py". A gate you have to remember to
+    # run is a gate that gets skipped; this job makes it unskippable.
+    #
+    # PyYAML is installed deliberately. check_yaml.py falls back to a strict
+    # built-in parser when PyYAML is absent, and its own docstring warns that
+    # "a PASS there is weaker than safe_load". CI uses the authoritative engine
+    # so a green run means the real parser accepted every block. Verified
+    # 2026-10-11 that both engines agree on this repo's current content, so
+    # installing PyYAML cannot turn a local PASS into a CI-only FAIL.
+    - name: Install PyYAML (authoritative engine)
+      run: python3 -m pip install --quiet pyyaml
+
+    - name: Parse every frontmatter and yaml block
+      run: python3 scripts/check_yaml.py
+
+    - name: Lint style entries
+      run: python3 scripts/lint_entries.py

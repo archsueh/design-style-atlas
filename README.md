@@ -4,7 +4,9 @@
 
 **默认路径仍是 Bauhaus / Swiss。** 本库只在请求出现 `style: <id>` 时参与。
 
-不推远端。本地 `git` 即可。
+远端：`archsueh/design-style-atlas`（public，建仓 2026-10-07）。推 `main` 与特性分支。
+
+（2026-09-28 原记「不推远端。本地 `git` 即可。」；建远端后该约定作废。）
 
 ## 扫描面（固化）
 
@@ -21,7 +23,7 @@
 - 新风格复制 `schema/style-entry.template.md`，八节写满后再改 `status: ready`。
 - 图 1 未知的风格只占位（`styles/_slot-0N.md`），不猜名字。`_slot-04` 已于 2026-09-30 由用户提供的样张定名为 `halftone-duotone`，余 `_slot-05`…`_slot-07`。
 - 第三方 skill 只在 `overlays/` 写引用，不改对方文件。
-- 改完跑 `python3 scripts/lint_entries.py`。
+- 改完跑 `python3 scripts/lint_entries.py`；CI（`.github/workflows/ci.yml`）会自动跑 `check_yaml.py` + `lint_entries.py`。
 - 潘通文件不收录色号数值表。
 
 ## 加条目时容易踩的四个坑（2026-09-30 补）
